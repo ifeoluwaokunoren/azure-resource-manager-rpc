@@ -47,10 +47,7 @@ This API uses the &quot;system&quot; version of 2.0 because it can be triggered 
 		"additionalProperties": {
 			"<key>": "<JToken1>",
 			"<keyN>": "<JTokenN>"
-		},
-		"resourceProviderProperties": {
-			"resourceProviderNamespace": "<ProviderNamespace>"
-		}
+		}	
 	}
 }
 ```
@@ -68,7 +65,7 @@ This API uses the &quot;system&quot; version of 2.0 because it can be triggered 
 | **properties.registeredFeatures** | Optional.All AFEC features that the subscriptions has been registered under RP namespace and platform namespace (Microsoft.Resources).  Null or an empty array would mean that there are no registered features in the subscription. | **Properties.availabilityZones** | Optional.Physical to logical zone mapping (need to add above).  it will be per-region.|
 | **properties.managedByTenants** | Optional.All tenants managing the subscription. Null or empty means that there are no managing tenants. |
 | **properties.additionalProperties** | Required. AdditionalProperty bag, which is a dictionary of JTokens. More details can be found below. | 
-| **properties.resourceProviderNamespace**| Required. Resource Provider Namespace e.g.: Microsoft.Contonso. |
+
 
 #### AdditionalProperties
 Additional Properties property would be a dictionary of JTokens. Please note that in the future the dictionary may be appended with additional JTokens. Also, the JTokens may also be modified to have additional data . Resource Providers should develop code that can handle modifications, and should not strongly parse this dictionary. 
@@ -82,10 +79,22 @@ Additional Properties property would be a dictionary of JTokens. Please note tha
 			"billingType": "Legacy| Modern",
 			"paymentType": "Paid |Free| Entitlement| SponsoredPlus | Sponsored | Benefit | None",
 			"workloadType": "Production | DevTest | None"
+		},
+		"resourceProviderProperties": {
+			"resourceProviderNamespace": "<Provider Namespace>"
 		}
 	}
 }
 ```
+| **Element name** | Description |
+| --- | --- |
+| **additionalproperties.billingproperties**| <placeholder> |
+| **billingproperties.costCategory**| <placeholder> |
+| **billingproperties.channelType**| <placeholder> |
+| **billingproperties.billingType**| <placeholder> |
+| **billingproperties.paymentType**| <placeholder> |
+| **billingproperties.workloadType**| <placeholder> |
+| **additionalproperties.resourceProviderNamespace**| Required. Resource Provider Namespace e.g.: Microsoft.Contonso. |
 
 ### Response
 
